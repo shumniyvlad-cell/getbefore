@@ -236,6 +236,51 @@ h3 { font-weight: 600; font-size: 1.2rem; line-height: 1.3; }
 .typing i:nth-child(3) { animation-delay: 0.4s; }
 @keyframes typing { 0%, 60%, 100% { opacity: 0.25; } 30% { opacity: 1; } }
 
+/* Сцена в хиро: печатает → сообщение → карточка у менеджера */
+.objcard__state { display: grid; flex: 1; min-width: 0; text-align: center; }
+.objcard__state .st {
+  grid-area: 1 / 1; justify-self: center;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+  opacity: 0; transition: opacity 0.35s var(--ease);
+}
+.objcard[data-step="1"] .st-1,
+.objcard[data-step="2"] .st-2,
+.objcard[data-step="3"] .st-3 { opacity: 1; }
+.st-3 { color: var(--blue); font-weight: 500; }
+.st-3::before { content: "✓ "; }
+.objcard__media { position: relative; }
+.objcard__video { transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), filter 0.6s var(--ease); }
+.objcard[data-step="2"] .objcard__video,
+.objcard[data-step="3"] .objcard__video { opacity: 0.22; transform: scale(0.96); filter: saturate(0.3); }
+.scene__msg, .scene__bot {
+  position: absolute; left: 16px; right: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--ink);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem; line-height: 1.35;
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  pointer-events: none;
+}
+.scene__msg { top: 16px; background: #fff; border-radius: 16px 16px 16px 4px; }
+.scene__msg b { display: block; color: var(--blue); font-size: 0.8rem; margin-bottom: 4px; }
+.scene__msg time { display: block; text-align: right; color: var(--mute); font-size: 0.75rem; margin-top: 6px; }
+.scene__bot { bottom: 16px; background: var(--blue); color: #fff; border-radius: 16px 16px 4px 16px; }
+.scene__who { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; opacity: 0.85; margin-bottom: 6px; }
+.scene__who i {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; color: var(--blue);
+  font-family: var(--display); font-weight: 800; font-style: normal; font-size: 0.7rem;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.scene__bot b { display: block; font-family: var(--display); font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; margin-bottom: 2px; }
+.scene__bot em { display: block; font-style: normal; margin-top: 8px; font-size: 0.78rem; opacity: 0.85; }
+.objcard[data-step="2"] .scene__msg,
+.objcard[data-step="3"] .scene__msg { opacity: 1; transform: none; }
+.objcard[data-step="3"] .scene__msg { opacity: 0.7; transform: translateY(-4px) scale(0.97); }
+.objcard[data-step="3"] .scene__bot { opacity: 1; transform: none; }
+[data-count] { display: inline-block; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
 .leadcard {
   width: min(400px, 92%);
   margin-right: 80px;
@@ -730,6 +775,7 @@ h3 { font-weight: 600; font-size: 1.2rem; line-height: 1.3; }
   .hero__stage { gap: 28px; }
   .objcard, .leadcard { width: 100%; margin-left: 0; }
   .objcard { transform: rotate(-1.5deg); }
+  .objcard__cap { font-size: 0.78rem; padding: 11px 12px; gap: 8px; }
   .leadcard { transform: rotate(1deg); }
   .phones { grid-template-columns: repeat(3, 82vw); }
   .form__panel { padding: 22px; }
@@ -753,6 +799,7 @@ h3 { font-weight: 600; font-size: 1.2rem; line-height: 1.3; }
   .hero h1 .w, .hero__lead, .hero__actions, .objcard, .leadcard { animation: none; }
   [data-reveal], .step .mf, .step .sg__chips i, .step .mf__btn, .step .sg__row, .step .bot__msg, .step .bot__keys, .step .sc__row, .step .sc__foot, .btn { transition: none; }
   [data-reveal] { opacity: 1; transform: none; }
+  .scene__msg, .scene__bot, .objcard__video, .objcard__state .st { transition: none; }
 }
 
 /* ---------- Документы ---------- */

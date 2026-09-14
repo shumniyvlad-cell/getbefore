@@ -4,7 +4,7 @@
 
   const cfg = window.BEFORE_CONFIG || {};
   const plans = cfg.plans || {};
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reduce = !/[?&]motion=1/.test(location.search) && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -288,29 +288,68 @@
     const els = $$('[data-count]');
     if (!els.length) return;
     const fmt = n => n.toLocaleString('ru-RU');
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach(el => { el.textContent = fmt(+el.dataset.count); });
-      return;
-    }
+    const finish = el => { el.textContent = fmt(+el.dataset.count); };
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(finish); return; }
+
+    // Ширину резервируем по финальному числу, иначе строка прыгает на каждом кадре.
+    const reserve = el => {
+      finish(el);
+      el.style.minWidth = Math.ceil(el.getBoundingClientRect().width + 2) + 'px';
+      el.style.visibility = 'hidden';
+    };
     const animate = el => {
+      el.style.visibility = '';
       const target = +el.dataset.count;
-      const dur = 1400, t0 = performance.now();
-      const ease = t => 1 - Math.pow(1 - t, 3);
+      const dur = 1000, t0 = performance.now();
+      const ease = t => 1 - (1 - t) * (1 - t);
+      let done = false;
+      const end = () => { if (done) return; done = true; finish(el); };
       const step = now => {
+        if (done) return;
         const p = Math.min(1, (now - t0) / dur);
+        if (p >= 1) { end(); return; }
         el.textContent = fmt(Math.round(target * ease(p)));
-        if (p < 1) requestAnimationFrame(step);
+        requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
+      setTimeout(end, dur + 150);   // финал ставим в любом случае, даже если кадры дропнулись
     };
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        io.unobserve(en.target);
-        animate(en.target);
-      });
-    }, { threshold: 0.5 });
-    els.forEach(el => io.observe(el));
+    const ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    ready.then(() => {
+      els.forEach(reserve);
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (!en.isIntersecting) return;
+          io.unobserve(en.target);
+          animate(en.target);
+        });
+      }, { threshold: 0.2 });
+      els.forEach(el => io.observe(el));
+    });
+  }
+
+  /* ---------- Хиро: печатает → сообщение → карточка ---------- */
+
+  function initScene() {
+    const card = $('[data-scene]');
+    if (!card) return;
+    const clock = $('[data-scene-clock]', card);
+    const set = (step, time) => { card.dataset.step = step; if (clock) clock.textContent = time; };
+    if (reduce) { set('3', '12:05'); return; }
+    const steps = [
+      ['1', '12:04', 2600],
+      ['2', '12:04', 2400],
+      ['3', '12:05', 3800],
+      ['0', '12:04', 500]
+    ];
+    let i = 0;
+    const tick = () => {
+      const [step, time, wait] = steps[i];
+      set(step, time);
+      i = (i + 1) % steps.length;
+      setTimeout(tick, wait);
+    };
+    tick();
   }
 
   /* ---------- Обсудить: кнопки ведут к форме ---------- */
@@ -441,6 +480,7 @@
   initReveal();
   initStage();
   initCounters();
+  initScene();
   initDiscuss();
   initForm();
 })();

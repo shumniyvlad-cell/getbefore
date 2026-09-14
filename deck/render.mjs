@@ -1,7 +1,7 @@
 // Сборка PDF из deck/deck.html. Цены, контакт и время ответа берутся из config.js.
 // Запуск:  node deck/render.mjs        (из папки before)
 //          node deck/render.mjs --png  (плюс PNG каждой страницы в deck/preview)
-import { chromium } from '/Users/vladshuma/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import { chromium } from '/Users/vladshuma/.npm/_npx/9833c18b2d85bc59/node_modules/playwright/index.mjs';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
