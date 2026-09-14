@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Before: клиенты из Telegram и Threads до конкурентов</title>
+  <meta name="description" content="Before ловит запросы покупателей в публичных чатах Telegram и постах Threads и приносит их менеджеру в бота. Ничего не пишет от вашего имени.">
+  <meta name="theme-color" content="#f4f4f0">
+  <meta property="og:title" content="Before: клиенты из Telegram и Threads до конкурентов">
+  <meta property="og:description" content="Клиент ещё печатает. Before ловит запросы в Telegram и Threads, пока их не увидели конкуренты.">
+  <meta property="og:type" content="website">
+  <!-- Замени before.example на свой домен, иначе превью в Telegram не подтянется -->
+  <meta property="og:image" content="https://before.example/media/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://before.example/media/og.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b2cff'/%3E%3Ccircle cx='10' cy='16' r='3' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%23fff'/%3E%3Ccircle cx='22' cy='16' r='3' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">К содержанию</a>
+
+  <header class="top" data-top>
+    <a class="brand" href="#top" aria-label="Before, в начало страницы">Before</a>
+    <nav class="top__nav" aria-label="Разделы">
+      <a href="#how">Как работает</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#pricing">Тарифы</a>
+    </nav>
+    <a class="btn btn--ink btn--sm" href="#discuss" data-discuss>Обсудить</a>
+  </header>
+
+  <div class="tape" aria-hidden="true">
+    <div class="tape__track" data-tape>
+      <span><em>@marketing_chat</em> ищу подрядчика по директу для клиники, бюджет 150к</span>
+      <span><em>Threads</em> посоветуйте бухгалтера на аутсорс для ИП</span>
+      <span><em>@wb_sellers</em> нужен поставщик из Китая под маркетплейсы</span>
+      <span><em>@krd_chat</em> подскажите юриста по банкротству, срочно</span>
+      <span><em>Threads</em> кто настроит рекламу для студии растяжки в Питере</span>
+      <span><em>@event_sochi</em> ищем ведущего на корпоратив, 120 человек</span>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <section class="hero" id="top">
+      <h1><span class="w">Клиент</span> <span class="w">ещё</span><br><span class="w w--blue">печатает.</span></h1>
+      <div class="hero__copy">
+        <p class="hero__lead">Before ловит запросы в Telegram и Threads, пока их не увидели конкуренты, и кладёт карточку вашему менеджеру в бота.</p>
+        <div class="hero__actions">
+          <a class="btn btn--blue" href="#discuss" data-discuss>Обсудить</a>
+          <a class="btn btn--line" href="#how">Как работает</a>
+        </div>
+      </div>
+
+      <div class="hero__stage" aria-hidden="true">
+        <figure class="card objcard">
+          <figcaption class="objcard__cap">
+            <span>@marketing_chat</span>
+            <span class="typing"><i></i><i></i><i></i>Марина печатает</span>
+            <span>12:04</span>
+          </figcaption>
+          <video class="objcard__video" autoplay muted loop playsinline preload="metadata" poster="media/bubble.webp">
+            <source src="media/bubble.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+
+      <ol class="hero__index">
+        <li><b>01</b>Telegram и Threads</li>
+        <li><b>02</b>Только чтение</li>
+        <li><b>03</b>Карточка за минуту</li>
+      </ol>
+    </section>
+
+    <section class="live" id="live">
+      <div class="sec__head">
+        <span class="sec__num">01</span>
+        <h2>Живая лента</h2>
+        <p>Слева чаты, где пишут клиенты. Справа Telegram вашего менеджера: карточка приходит через минуту после сообщения.</p>
+      </div>
+      <div class="phones" data-stage aria-hidden="true">
+        <div class="phone-wrap"><div class="phone" data-tg>
+          <div class="ph__status"><span data-clock>12:03</span><svg viewBox="0 0 64 12" class="ph__icons"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M24 4.5a9 9 0 0 1 12 0l-1.5 1.7a6.8 6.8 0 0 0-9 0zM26.5 7.4a5.5 5.5 0 0 1 7 0L32 9l-2-2.2z"/><rect x="41" y="1.5" width="19" height="9" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="42.5" y="3" width="14" height="6" rx="1.2"/><rect x="61" y="4" width="2" height="4" rx="1"/></svg></div>
+          <div class="tg__head">
+            <span class="tg__back"></span>
+            <span class="tg__ava" style="--c1:#5fb4ea;--c2:#2f7fd8">М</span>
+            <div class="tg__title"><b>Маркетинг и продажи</b><span>4 812 участников, 213 в сети</span></div>
+            <span class="tg__more"></span>
+          </div>
+          <div class="tg__chat"><div class="tg__inner" data-list></div></div>
+          <div class="tg__input"><span class="tg__clip"></span><span class="tg__field">Сообщение</span><span class="tg__mic"></span></div>
+        </div><span class="phone__label">Группа в Telegram, где пишут клиенты</span></div>
+
+        <div class="phone-wrap"><div class="phone" data-th>
+          <div class="ph__status"><span data-clock>12:03</span><svg viewBox="0 0 64 12" class="ph__icons"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M24 4.5a9 9 0 0 1 12 0l-1.5 1.7a6.8 6.8 0 0 0-9 0zM26.5 7.4a5.5 5.5 0 0 1 7 0L32 9l-2-2.2z"/><rect x="41" y="1.5" width="19" height="9" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="42.5" y="3" width="14" height="6" rx="1.2"/><rect x="61" y="4" width="2" height="4" rx="1"/></svg></div>
+          <div class="th__head"><svg viewBox="0 0 48 48" class="th__logo"><path d="M33.5 22.4c-.3-3.3-1.4-6-3.4-8-2.3-2.3-5.4-3.4-9-3.3-4.3.1-7.6 1.6-9.8 4.4-2 2.6-3 6.2-3 10.7 0 4.6 1 8.2 3.1 10.8 2.3 2.8 5.7 4.2 10.1 4.2 3.7 0 6.6-1 8.8-2.9 2.6-2.3 3.6-5.2 3-8.6-.6-3.2-2.9-5.6-6.4-6.6" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><path d="M17.8 26.2c.3-2.7 2.4-4.6 5.6-4.9 3.5-.3 6 1.4 6.3 4.5.3 3.4-1.8 5.9-5.3 6.2-2.9.2-5.3-1.3-5.6-3.5-.3-2.1 1.5-3.6 4.3-3.6 2.4 0 4.4.6 5.9 1.4" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div>
+          <div class="th__feed" data-list></div>
+          <div class="th__tabs"><i class="is-on"></i><i></i><i></i><i></i><i></i></div>
+        </div><span class="phone__label">Лента Threads</span></div>
+
+        <div class="phone-wrap"><div class="phone" data-bot>
+          <div class="ph__status"><span data-clock>12:03</span><svg viewBox="0 0 64 12" class="ph__icons"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="1" width="3" height="11" rx="1"/><path d="M24 4.5a9 9 0 0 1 12 0l-1.5 1.7a6.8 6.8 0 0 0-9 0zM26.5 7.4a5.5 5.5 0 0 1 7 0L32 9l-2-2.2z"/><rect x="41" y="1.5" width="19" height="9" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="42.5" y="3" width="14" height="6" rx="1.2"/><rect x="61" y="4" width="2" height="4" rx="1"/></svg></div>
+          <div class="tg__head">
+            <span class="tg__back"></span>
+            <span class="tg__ava tg__ava--bot">B</span>
+            <div class="tg__title"><b>Before</b><span>бот</span></div>
+            <span class="tg__more"></span>
+          </div>
+          <div class="tg__chat tg__chat--bot"><div class="tg__inner" data-list></div></div>
+          <div class="tg__input"><span class="tg__clip"></span><span class="tg__field">Сообщение</span><span class="tg__mic"></span></div>
+        </div><span class="phone__label">Telegram вашего менеджера</span></div>
+      </div>
+      <p class="visually-hidden">Демонстрация: лента сообщений из публичных чатов Telegram и постов Threads. Before выделяет запрос покупателя и превращает его в карточку лида с черновиком первого сообщения для менеджера.</p>
+    </section>
+
+    <section class="where" id="where">
+      <div class="sec__head">
+        <span class="sec__num">02</span>
+        <h2>Где ищем</h2>
+      </div>
+      <div class="marks">
+        <figure class="mark card">
+          <img class="mark__img" src="media/plane.webp" alt="Бумажный самолётик" width="1000" height="1000" loading="lazy">
+          <figcaption class="mark__cap"><b>Telegram</b><span>публичные чаты и каналы</span></figcaption>
+        </figure>
+        <figure class="mark card">
+          <img class="mark__img" src="media/thread.webp" alt="Синяя спираль, знак Threads" width="1000" height="1000" loading="lazy">
+          <figcaption class="mark__cap"><b>Threads</b><span>посты и ответы</span></figcaption>
+        </figure>
+        <figure class="mark card">
+          <img class="mark__img" src="media/eye.webp" alt="Глаз" width="1000" height="1000" loading="lazy">
+          <figcaption class="mark__cap"><b>Только чтение</b><span>ничего не пишем от вашего имени</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sieve" id="why">
+      <div class="sec__head">
+        <span class="sec__num">03</span>
+        <h2><span data-count="20000">20 000</span> сообщений. Один запрос.</h2>
+        <p>Столько шума в общих чатах. Before ищет там, где пишут «ищу».</p>
+      </div>
+      <figure class="card card--tilt-l sieve__fig">
+        <img src="media/funnel.webp" alt="Воронка: тысячи серых точек сверху, одна синяя снизу" width="1600" height="1200" loading="lazy">
+      </figure>
+    </section>
+
+    <section class="how" id="how">
+      <div class="sec__head">
+        <span class="sec__num">04</span>
+        <h2>Как работает</h2>
+        <p>Пять шагов от оплаты до первого запроса. От вас анкета и вердикты по карточкам, остальное делаем мы.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step">
+          <div class="step__num"><b>01</b><span>15 минут</span></div>
+          <div class="step__text">
+            <h3>Заявка и разговор</h3>
+            <p>Оставляете контакт, мы пишем в Telegram в течение трёх часов. За 15 минут разбираем, что продаёте, кому и где, и подбираем тариф. После оплаты уточняем детали: кому слать карточки, какой бюджет клиента считать нормальным.</p>
+            <p class="step__note">Доступы к вашим аккаунтам не нужны. Скан идёт с отдельного аккаунта Before.</p>
+          </div>
+          <div class="mock card" aria-hidden="true">
+            <div class="mf"><span>Имя</span><b>Марина</b></div>
+            <div class="mf"><span>Telegram или телефон</span><b>@marina_clinic</b></div>
+            <div class="mf"><span>Что продаёте и кому</span><b>Директ для клиник, чек от 60 000 ₽</b></div>
+            <div class="mf__btn">Отправлено</div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step__num"><b>02</b><span>2–3 дня, руками</span></div>
+          <div class="step__text">
+            <h3>Настройка под нишу</h3>
+            <p>Переводим анкету на язык ваших клиентов: как они формулируют запрос, что считать шумом. Подбираем чаты и каналы, где такие запросы реально пишут, и поисковые фразы для Threads.</p>
+            <p class="step__note">Список источников и сигналов присылаем вам на согласование до запуска.</p>
+          </div>
+          <div class="mock card" aria-hidden="true">
+            <div class="sg">
+              <span class="sg__label">Ищем</span>
+              <div class="sg__chips"><i>ищу подрядчика по директу</i><i>нужен директолог</i><i>посоветуйте агентство</i><i>кто ведёт рекламу клиник</i></div>
+            </div>
+            <div class="sg">
+              <span class="sg__label">Мимо</span>
+              <div class="sg__chips sg__chips--off"><i>резюме</i><i>реклама курсов</i><i>агентство ищет клиентов</i></div>
+            </div>
+            <div class="sg__row"><span>Гео</span><b>Москва</b><span>Бюджет</span><b>от 120 000 ₽</b></div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step__num"><b>03</b><span>с третьего дня, круглосуточно</span></div>
+          <div class="step__text">
+            <h3>Скан</h3>
+            <p>Отдельный аккаунт Before читает публичные чаты и каналы Telegram, а в Threads ищет посты по ключевым фразам через официальный API. Каждое сообщение оценивается по контексту: ключевое слово само по себе не лид.</p>
+            <p class="step__note">Только чтение. Аккаунт не пишет, не вступает в чаты и не подписывается.</p>
+          </div>
+          <div class="mock card mock--scan" aria-hidden="true">
+            <div class="sc__head"><span>Источники</span><span class="sc__live"><i></i>скан идёт</span></div>
+            <div class="sc__row"><i></i><b>@marketing_chat</b><span>12:04</span></div>
+            <div class="sc__row"><i></i><b>@digital_talks</b><span>12:04</span></div>
+            <div class="sc__row"><i></i><b>@med_marketing</b><span>12:03</span></div>
+            <div class="sc__row"><i></i><b>Threads: «ищу подрядчика по директу»</b><span>12:04</span></div>
+            <div class="sc__row"><i></i><b>Threads: «посоветуйте агентство»</b><span>12:02</span></div>
+            <div class="sc__foot"><b>38 источников</b><span>за сегодня 6 120 сообщений, 3 запроса</span></div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step__num"><b>04</b><span>в течение минуты</span></div>
+          <div class="step__text">
+            <h3>Карточка в Telegram менеджера</h3>
+            <p>Как только появляется запрос, бот Before присылает карточку: текст и ссылку на сообщение, автора, источник, оценку совпадения и черновик первого сообщения под этот запрос.</p>
+            <p class="step__note">Менеджер нажимает «В работе», чтобы коллеги видели, кто ведёт, и пишет клиенту сам, от своего имени.</p>
+          </div>
+          <div class="mock card" aria-hidden="true">
+            <div class="bot__head"><span class="bot__ava">B</span><b>Before</b><span>бот</span></div>
+            <div class="bot__msg">
+              <b>Запрос: подрядчик по Директу</b>
+              <span>Клиника, Москва, 150 000 ₽ в месяц. Совпадение 92.</span>
+              <span class="bot__src">Марина К., @marketing_chat, 12:04</span>
+              <span class="bot__link">Открыть сообщение</span>
+              <span class="bot__draft">Черновик: «Марина, здравствуйте. Увидел ваш запрос про Директ…»</span>
+            </div>
+            <div class="bot__keys"><span>В тему</span><span>Мимо</span><span class="is-claim">В работе</span></div>
+            <div class="bot__msg bot__msg--sys">Анна взяла запрос в работу</div>
+          </div>
+        </li>
+
+        <li class="step">
+          <div class="step__num"><b>05</b><span>каждую неделю</span></div>
+          <div class="step__text">
+            <h3>Вердикты и аудит</h3>
+            <p>На каждой карточке две кнопки: «В тему» или «Мимо». По вашим вердиктам выдача подстраивается, но бриф остаётся главнее. Раз в месяц пересматриваем источники: шумные убираем, новые добавляем.</p>
+            <p class="step__note">Раз в неделю бот присылает дайджест: сколько нашли, сколько в работе, сколько отсеяли и почему.</p>
+          </div>
+          <div class="mock card" aria-hidden="true">
+            <div class="bot__head"><span class="bot__ava">B</span><b>Before</b><span>бот</span></div>
+            <div class="bot__msg">
+              <b>Дайджест за неделю</b>
+              <span>Нашли 14 запросов. В работе 9. Мимо 3, из них 2 резюме и 1 реклама.</span>
+              <span>Лучший источник: @med_marketing, 5 запросов.</span>
+              <span>Заменили 2 источника: давали только продавцов.</span>
+              <span class="bot__src">Понедельник, 09:00</span>
+            </div>
+            <div class="bot__keys bot__keys--two"><span>Показать карточки</span><span>Отчёт целиком</span></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cases" id="cases">
+      <div class="sec__head">
+        <span class="sec__num">05</span>
+        <h2>Где уже работает</h2>
+        <p>Разные ниши, одна механика: чаты и посты, где клиент пишет «ищу», и карточка менеджеру за минуту. Цифры за первый месяц работы.</p>
+      </div>
+      <div class="tiles">
+        <article class="tile card card--tilt-l">
+          <span class="tile__who">Digital-агентство, Москва</span>
+          <b class="tile__num"><span data-count="37">37</span></b>
+          <span class="tile__what">карточек за месяц</span>
+          <p class="tile__ask">«кто ведёт директ для клиник», «посоветуйте агентство на SEO»</p>
+          <p>8 созвонов, 11 карточек из Threads</p>
+        </article>
+        <article class="tile card card--blue">
+          <span class="tile__who">Поставки из Китая для селлеров</span>
+          <b class="tile__num"><span data-count="24">24</span></b>
+          <span class="tile__what">запроса за месяц</span>
+          <p class="tile__ask">«ищу поставщика под маркетплейсы», «кто везёт карго с растаможкой»</p>
+          <p>3 партии ушли в расчёт, 5 запросов из Threads</p>
+        </article>
+        <article class="tile card card--tilt-r">
+          <span class="tile__who">Банкротство физлиц, Краснодар</span>
+          <b class="tile__num"><span data-count="48">48</span><small>сек</small></b>
+          <span class="tile__what">от сообщения до карточки</span>
+          <p class="tile__ask">«подскажите юриста по банкротству», «приставы списывают, что делать»</p>
+          <p>31 карточка за месяц, 7 консультаций</p>
+        </article>
+        <article class="tile card card--blue card--tilt-r">
+          <span class="tile__who">Агентство недвижимости, Сочи</span>
+          <b class="tile__num"><span data-count="29">29</span></b>
+          <span class="tile__what">запроса за месяц</span>
+          <p class="tile__ask">«ищу квартиру у моря под сдачу», «посоветуйте риелтора в Сочи»</p>
+          <p>6 показов назначено, 9 запросов из Threads</p>
+        </article>
+        <article class="tile card card--tilt-l">
+          <span class="tile__who">Психолог, онлайн</span>
+          <b class="tile__num"><span data-count="16">16</span></b>
+          <span class="tile__what">запросов за месяц</span>
+          <p class="tile__ask">«посоветуйте психолога, который работает с тревогой», «ищу коуча по выгоранию»</p>
+          <p>12 из Threads: о личном там пишут постами, а не в чатах. 5 первых сессий</p>
+        </article>
+        <article class="tile card card--tilt-r">
+          <span class="tile__who">Бухгалтерия на аутсорсе для ИП</span>
+          <b class="tile__num"><span data-count="21">21</span></b>
+          <span class="tile__what">запрос за месяц</span>
+          <p class="tile__ask">«нужен бухгалтер для ИП на УСН», «кто закрывает отчётность за неделю»</p>
+          <p>4 договора, пик запросов за две недели до отчётности</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="sec__head">
+        <span class="sec__num">06</span>
+        <h2>Тарифы</h2>
+        <p>Подписка на месяц, настройка под нишу входит в каждый тариф. Сначала короткий разговор, потом оплата, через два-три дня после неё пошли карточки. Отмена в любой момент.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan card" data-plan="start">
+          <div class="plan__top"><h3>Start</h3></div>
+          <p class="plan__price"><b data-price="start">10 000 ₽</b><span>в месяц</span></p>
+          <p class="plan__for">Проверить, пишут ли ваши клиенты в Telegram: одна услуга, один город.</p>
+          <ul class="plan__list">
+            <li>Telegram: до 10 чатов и каналов под наблюдением</li>
+            <li>Одно направление: одна услуга, одна аудитория, одно гео</li>
+            <li>Карточки одному менеджеру, с черновиком первого сообщения</li>
+            <li>Настройка сигналов под нишу и аудит источников при запуске</li>
+          </ul>
+          <ul class="plan__list plan__list--off">
+            <li>Без Threads</li>
+            <li>Без дообучения по вердиктам</li>
+          </ul>
+          <a class="btn btn--line" href="#discuss" data-discuss="start">Обсудить Start</a>
+          <p class="plan__fine">Перейти на Pro можно с любого дня, перенастройка не нужна.</p>
+        </article>
+
+        <article class="plan card card--blue plan--featured" data-plan="pro">
+          <div class="plan__top"><h3>Pro</h3><span class="plan__tag">Чаще всего берут</span></div>
+          <p class="plan__price"><b data-price="pro">25 000 ₽</b><span>в месяц</span></p>
+          <p class="plan__for">Отдел продаж из двух-трёх человек, несколько услуг или городов.</p>
+          <ul class="plan__list">
+            <li>Telegram и Threads: до 40 источников, новые ищем каждый месяц</li>
+            <li>До трёх направлений: разные услуги, аудитории или города</li>
+            <li>До трёх менеджеров и кнопка «В работе», чтобы не писать одному клиенту вдвоём</li>
+            <li>Дообучение по вашим вердиктам «в тему» и «мимо»</li>
+            <li>Аудит источников каждый месяц, дайджест каждую неделю</li>
+          </ul>
+          <a class="btn btn--paper" href="#discuss" data-discuss="pro">Обсудить Pro</a>
+          <p class="plan__fine">Порог бюджета, анти-сигналы и гео настраиваем под каждое направление отдельно.</p>
+        </article>
+
+        <article class="plan card" data-plan="team">
+          <div class="plan__top"><h3>Team</h3></div>
+          <p class="plan__price"><b data-price="team">50 000 ₽</b><span>в месяц</span></p>
+          <p class="plan__for">Несколько продуктов и большой отдел. Нужен поток, а не проверка гипотезы.</p>
+          <ul class="plan__list">
+            <li>Telegram и Threads: 100+ источников, новые ищем каждую неделю</li>
+            <li>Направления без лимита</li>
+            <li>До десяти менеджеров, два аккаунта скана, приоритетная очередь</li>
+            <li>Дообучение по вердиктам, аудит источников каждую неделю</li>
+            <li>Созвон раз в неделю, выгрузка карточек в вашу таблицу или CRM</li>
+          </ul>
+          <a class="btn btn--line" href="#discuss" data-discuss="team">Обсудить Team</a>
+          <p class="plan__fine">Под несколько брендов или юрлиц собираем отдельные контуры.</p>
+        </article>
+      </div>
+
+      <div class="pricing__notes">
+        <div class="note">
+          <b>Направление</b>
+          <p>Одна услуга для одной аудитории в одном гео. «Директ для клиник в Москве» одно направление, «Директ и SEO для клиник» уже два.</p>
+        </div>
+        <div class="note">
+          <b>Источник</b>
+          <p>Чат или канал в Telegram либо поисковая фраза в Threads. Подбираем их мы, вы согласовываете список до запуска.</p>
+        </div>
+        <div class="note">
+          <b>Оплата и отмена</b>
+          <p>Оплата после разговора, картой или по СБП, ссылку пришлём в Telegram. Отменить можно в любой момент, следующий месяц не списывается.</p>
+        </div>
+      </div>
+      <p class="pricing__foot">Не уверены, какой тариф ваш? <a href="#discuss" data-discuss>Оставьте контакт</a>, разберём за 15 минут и подскажем.</p>
+    </section>
+
+    <section class="onboard" id="discuss">
+      <div class="sec__head">
+        <span class="sec__num">07</span>
+        <h2>Обсудить</h2>
+        <p>Оставьте контакт. Напишем в Telegram в течение <span data-response-time>3 часов</span>, за 15 минут разберём вашу нишу и подберём тариф. Без звонков по скрипту, просто разговор.</p>
+      </div>
+
+      <div class="onboard__grid">
+      <div class="form__panel card">
+      <form class="form" data-form novalidate>
+        <div class="form__grid">
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label class="field">
+            <span>Telegram или телефон</span>
+            <input type="text" name="contact" required placeholder="@username или +7…" autocomplete="off" spellcheck="false">
+            <small class="field__hint">Сюда напишем с ответом.</small>
+          </label>
+          <label class="field">
+            <span>Какой тариф присматриваете</span>
+            <select name="plan">
+              <option value="">Пока не знаю, подскажите</option>
+              <option value="start">Start, 10 000 ₽ в месяц</option>
+              <option value="pro">Pro, 25 000 ₽ в месяц</option>
+              <option value="team">Team, 50 000 ₽ в месяц</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Компания или сайт</span>
+            <input type="text" name="company" autocomplete="organization">
+            <small class="field__hint">Необязательно. Посмотрим до разговора.</small>
+          </label>
+          <label class="field field--wide">
+            <span>Что продаёте и кому</span>
+            <textarea name="offer" rows="3" placeholder="Директ для клиник и производств, чек от 60 000 ₽ в месяц"></textarea>
+            <small class="field__hint">Необязательно, но так мы придём на разговор уже с примерами чатов, где пишут ваши клиенты.</small>
+          </label>
+        </div>
+        <input type="hidden" name="page">
+        <div class="form__actions">
+          <button class="btn btn--blue" type="submit" data-submit>Оставить заявку</button>
+          <p class="form__hint">Ответ в Telegram в течение <span data-response-time>3 часов</span> в рабочее время.</p>
+        </div>
+        <p class="form__status" role="status" aria-live="polite" data-status></p>
+      </form>
+
+      <div class="form__done" data-done hidden>
+        <h3>Заявка у меня</h3>
+        <p data-done-text>Напишем в Telegram в течение <span data-response-time>3 часов</span> в рабочее время.</p>
+        <textarea class="form__copy" data-copy readonly rows="6" hidden></textarea>
+        <a class="btn btn--line" data-tg-link href="#">Написать в Telegram</a>
+      </div>
+      </div>
+
+      <aside class="onboard__aside">
+        <div class="aside card">
+          <b class="aside__title">Что будет после заявки</b>
+          <ol class="aside__steps">
+            <li><span>1</span><div><b>В течение <span data-response-time>3 часов</span></b><p>Напишем вам в Telegram. Если удобнее голосом, созвонимся.</p></div></li>
+            <li><span>2</span><div><b>15 минут разговора</b><p>Разберём, что продаёте и где пишут ваши клиенты. Подберём тариф и честно скажем, если Telegram и Threads для вашей ниши не сработают.</p></div></li>
+            <li><span>3</span><div><b>Оплата и запуск</b><p>Пришлём ссылку на оплату. Дальше два-три дня настройки и первые карточки менеджеру.</p></div></li>
+          </ol>
+        </div>
+        <div class="aside aside--quiet">
+          <p>Данные из заявки видим только мы. Никаких рассылок и передачи третьим лицам.</p>
+        </div>
+      </aside>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="sec__head">
+        <span class="sec__num">08</span>
+        <h2>Вопросы</h2>
+      </div>
+      <div class="faq__list">
+        <details>
+          <summary>Это спам?</summary>
+          <p>Нет. Before только читает. Клиенту пишет ваш менеджер, сам и от своего имени.</p>
+        </details>
+        <details>
+          <summary>Нужен доступ к моим аккаунтам?</summary>
+          <p>Нет. От вас бриф и никнеймы менеджеров, которым слать карточки.</p>
+        </details>
+        <details>
+          <summary>Сколько будет лидов?</summary>
+          <p>Зависит от ниши. Честную оценку дадим после разговора, до запуска. Если ваших клиентов там нет, вернём деньги.</p>
+        </details>
+        <details>
+          <summary>Можно отменить?</summary>
+          <p>В любой момент. Следующий месяц не списывается.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="brand">Before</span>
+    <nav class="foot__links" aria-label="Ссылки">
+      <a data-tg-link href="#">Telegram</a>
+      <a href="#pricing">Тарифы</a>
+      <a href="#discuss">Обсудить</a>
+      <a href="#" data-doc="offer">Оферта</a>
+      <a href="#" data-doc="privacy">Конфиденциальность</a>
+    </nav>
+    <p class="foot__copy">Before, <span data-year>2026</span>. Читаем только публичные сообщения, ничего не пишем от вашего имени.</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

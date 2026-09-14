@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Before — презентация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f4f0; --ink:#0a0a0a; --ink-2:#2a2a28; --mute:#6b6b66;
+  --blue:#1b2cff; --line:rgba(10,10,10,.14);
+  --display:"Unbounded","Onest",sans-serif; --font:"Onest",sans-serif;
+  --sh:2.6mm 2.6mm 0 var(--ink); --sh-sm:1.8mm 1.8mm 0 var(--ink);
+}
+/* слайд 16:9, как в PowerPoint: 13.333 × 7.5 дюйма */
+@page{ size:338.667mm 190.5mm; margin:0; }
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:#fff; }
+body{ font-family:var(--font); color:var(--ink); font-size:13pt; line-height:1.4; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,p,ul,ol{ margin:0; padding:0; }
+ul,ol{ list-style:none; }
+b,strong{ font-weight:600; }
+img{ display:block; max-width:100%; }
+
+.slide{
+  position:relative; width:338.667mm; height:190.5mm; overflow:hidden;
+  background:var(--paper);
+  background-image:linear-gradient(var(--line) .25mm,transparent .25mm),linear-gradient(90deg,var(--line) .25mm,transparent .25mm);
+  background-size:100% 47.6mm, 12.5% 100%;
+  padding:15mm 18mm 13mm;
+  display:flex; flex-direction:column;
+  break-after:page; page-break-after:always;
+}
+.slide:last-child{ break-after:auto; page-break-after:auto; }
+.slide--blue{
+  background:var(--blue); color:#fff;
+  background-image:linear-gradient(rgba(255,255,255,.13) .25mm,transparent .25mm),linear-gradient(90deg,rgba(255,255,255,.13) .25mm,transparent .25mm);
+  background-size:100% 47.6mm, 12.5% 100%;
+}
+
+/* ——— каркас слайда ——— */
+.top{ display:flex; align-items:baseline; justify-content:space-between; gap:8mm; }
+.brand{ font-family:var(--display); font-weight:800; font-size:15pt; letter-spacing:-.02em; }
+.kicker{ font-family:var(--display); font-weight:700; font-size:8.4pt; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); }
+.slide--blue .kicker{ color:rgba(255,255,255,.72); }
+.bottom{ margin-top:auto; padding-top:8mm; display:flex; align-items:flex-end; justify-content:space-between; gap:8mm; font-size:9pt; color:var(--mute); }
+.slide--blue .bottom{ color:rgba(255,255,255,.7); }
+.bottom b{ font-family:var(--display); font-weight:700; color:var(--ink); }
+.slide--blue .bottom b{ color:#fff; }
+h2{ font-family:var(--display); font-weight:800; font-size:31pt; line-height:1.05; letter-spacing:-.035em; max-width:292mm; }
+.lead{ font-size:14pt; line-height:1.4; color:var(--ink-2); max-width:180mm; margin-top:6mm; }
+.slide--blue .lead{ color:rgba(255,255,255,.9); }
+.card{ background:var(--paper); border:.5mm solid var(--ink); box-shadow:var(--sh); }
+.card--blue{ background:var(--blue); color:#fff; }
+.card--sm{ box-shadow:var(--sh-sm); }
+.tilt-l{ transform:rotate(-1deg); }
+.tilt-r{ transform:rotate(1deg); }
+.num{ font-variant-numeric:tabular-nums; }
+.body{ flex:1 1 auto; min-height:0; display:flex; align-items:center; }
+
+/* ——— 1. титул ——— */
+.hero{ display:grid; grid-template-columns:1fr 92mm; gap:14mm; align-items:center; width:100%; }
+.hero h1{ font-family:var(--display); font-weight:800; font-size:58pt; line-height:.94; letter-spacing:-.05em; }
+.hero h1 span{ color:var(--blue); }
+.hero p{ font-size:14.5pt; line-height:1.4; color:var(--ink-2); margin-top:8mm; max-width:150mm; }
+.bub{ overflow:hidden; }
+.bub__cap{ display:flex; align-items:center; gap:3mm; padding:3.4mm 4.6mm; border-bottom:.5mm solid var(--ink); font-size:8.4pt; color:var(--mute); white-space:nowrap; }
+.bub__cap b{ margin-right:auto; color:var(--ink); font-weight:600; }
+.dots{ display:inline-flex; gap:1.2mm; }
+.dots i{ width:1.6mm; height:1.6mm; border-radius:50%; background:var(--blue); display:block; }
+.facts{ display:grid; grid-template-columns:repeat(3,1fr); gap:8mm; margin-top:9mm; }
+.fact{ border-top:.8mm solid var(--ink); padding-top:3.6mm; }
+.fact b{ font-family:var(--display); font-weight:800; font-size:10pt; color:var(--blue); display:block; }
+.fact span{ display:block; margin-top:2mm; font-size:11.5pt; font-weight:500; }
+
+/* ——— 2. проблема ——— */
+.prob{ display:grid; grid-template-columns:1.1fr 1fr; gap:14mm; align-items:center; width:100%; }
+.msgs{ display:grid; gap:5mm; }
+.msg{ padding:5mm 5.6mm; }
+.msg p{ font-size:12.5pt; line-height:1.34; }
+.msg span{ display:block; margin-top:2.6mm; font-size:9pt; color:var(--mute); }
+.probtext p{ font-size:14pt; line-height:1.42; color:var(--ink-2); }
+.probtext p + p{ margin-top:5mm; }
+.probtext b{ color:var(--ink); }
+
+/* ——— 3. цифра ——— */
+.big{ display:grid; grid-template-columns:1fr 112mm; gap:14mm; align-items:center; width:100%; }
+.big__fig{ padding:5mm; background:var(--paper); }
+.big__n{ font-family:var(--display); font-weight:800; font-size:104pt; line-height:.9; letter-spacing:-.055em; }
+.big h2{ margin-top:5mm; max-width:210mm; }
+.big p{ font-size:14.5pt; line-height:1.4; margin-top:7mm; max-width:180mm; color:rgba(255,255,255,.9); }
+
+/* ——— 4. что делаем ——— */
+.marks{ display:grid; grid-template-columns:repeat(3,1fr); gap:10mm; width:100%; align-items:stretch; }
+.mark{ padding:6mm; display:flex; flex-direction:column; }
+.mark img{ width:44mm; margin:0 auto 5mm; }
+.mark b{ font-family:var(--display); font-weight:800; font-size:16pt; letter-spacing:-.02em; }
+.mark span{ display:block; margin-top:2.6mm; font-size:11.5pt; color:var(--ink-2); line-height:1.34; }
+
+/* ——— 5. карточка ——— */
+.res{ display:grid; grid-template-columns:96mm 1fr; gap:14mm; align-items:center; width:100%; }
+.bot{ padding:0; overflow:hidden; }
+.bot__head{ display:flex; align-items:center; gap:3mm; padding:4mm 5mm; border-bottom:.5mm solid var(--ink); }
+.bot__ava{ width:8mm; height:8mm; border-radius:50%; background:var(--blue); color:#fff; font-family:var(--display); font-weight:800; font-size:9pt; display:flex; align-items:center; justify-content:center; }
+.bot__head b{ font-family:var(--display); font-weight:700; font-size:11pt; }
+.bot__head span{ font-size:9pt; color:var(--mute); }
+.bot__body{ padding:5mm; display:grid; gap:3mm; }
+.bot__msg{ padding:4.4mm; background:#fff; border:.35mm solid var(--line); border-radius:2.4mm 2.4mm 2.4mm .8mm; }
+.bot__msg b{ display:block; font-family:var(--display); font-weight:700; font-size:11pt; }
+.bot__msg span{ display:block; font-size:10pt; color:var(--ink-2); margin-top:2mm; line-height:1.34; }
+.bot__src{ color:var(--mute)!important; font-size:9pt!important; }
+.bot__link{ color:var(--blue)!important; font-weight:600; }
+.bot__draft{ padding:3mm; margin-top:2.6mm!important; background:rgba(27,44,255,.07); border-left:.7mm solid var(--blue); font-size:9.4pt!important; }
+.bot__keys{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:2mm; }
+.bot__keys span{ text-align:center; padding:3mm 1mm; font-size:9pt; font-weight:600; border:.35mm solid var(--ink); background:var(--paper); }
+.bot__keys .on{ background:var(--blue); color:#fff; border-color:var(--blue); }
+.ticks{ display:grid; gap:4.4mm; margin-top:7mm; }
+.ticks li{ position:relative; padding-left:8mm; font-size:13pt; line-height:1.34; }
+.ticks li::before{ content:""; position:absolute; left:0; top:2.4mm; width:3.6mm; height:3.6mm; background:var(--blue); }
+.note{ margin-top:7mm; padding-left:4mm; border-left:.8mm solid var(--blue); font-size:11pt; color:var(--mute); line-height:1.36; max-width:130mm; }
+
+/* ——— 6. таймлайн ——— */
+.flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:7mm; width:100%; align-items:stretch; }
+.step{ display:flex; flex-direction:column; border-top:.8mm solid var(--ink); padding-top:4.4mm; }
+.step b{ font-family:var(--display); font-weight:800; font-size:19pt; color:var(--blue); line-height:1; letter-spacing:-.03em; }
+.step em{ display:block; font-style:normal; font-size:8.6pt; color:var(--mute); margin-top:2.4mm; }
+.step h3{ font-family:var(--display); font-weight:700; font-size:13pt; margin-top:5mm; letter-spacing:-.015em; line-height:1.15; }
+.step p{ font-size:10.5pt; color:var(--ink-2); margin-top:3mm; line-height:1.36; }
+
+/* ——— 7. границы ——— */
+.nos{ display:grid; grid-template-columns:repeat(2,1fr); gap:8mm 14mm; width:100%; align-content:center; }
+.no{ display:grid; grid-template-columns:12mm 1fr; gap:4mm; align-items:start; }
+.no i{ font-family:var(--display); font-style:normal; font-weight:800; font-size:15pt; color:var(--blue); }
+.no b{ font-family:var(--display); font-weight:700; font-size:15pt; letter-spacing:-.02em; display:block; }
+.no p{ font-size:11.5pt; color:var(--ink-2); margin-top:2.4mm; line-height:1.36; }
+
+/* ——— 8-9. кейсы ——— */
+.tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:10mm; width:100%; align-items:start; }
+.tile{ padding:7mm; display:flex; flex-direction:column; }
+.tile__who{ font-size:9pt; letter-spacing:.08em; text-transform:uppercase; color:var(--mute); font-weight:600; }
+.card--blue .tile__who{ color:rgba(255,255,255,.72); }
+.tile__num{ font-family:var(--display); font-weight:800; font-size:46pt; line-height:1; letter-spacing:-.05em; margin-top:4mm; }
+.tile__num small{ font-size:16pt; margin-left:2mm; letter-spacing:0; }
+.tile__what{ font-size:11.5pt; font-weight:600; margin-top:1.6mm; }
+.tile__ask{ font-size:10.5pt; color:var(--ink-2); margin-top:5mm; line-height:1.36; font-style:italic; }
+.card--blue .tile__ask{ color:rgba(255,255,255,.88); }
+.tile__res{ font-size:10.5pt; color:var(--mute); margin-top:5mm; }
+.card--blue .tile__res{ color:rgba(255,255,255,.74); }
+
+/* ——— 10. тарифы ——— */
+.plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:8mm; width:100%; align-items:stretch; }
+.plan{ padding:6.4mm; display:flex; flex-direction:column; }
+.plan h3{ font-family:var(--display); font-weight:800; font-size:17pt; letter-spacing:-.02em; }
+.plan__tag{ align-self:flex-start; margin-top:2.4mm; padding:1.6mm 3mm; background:#fff; color:var(--blue); font-size:8pt; font-weight:600; letter-spacing:.05em; text-transform:uppercase; }
+.plan__price{ font-family:var(--display); font-weight:800; font-size:19pt; letter-spacing:-.035em; margin-top:4.4mm; }
+.plan__price span{ display:block; font-family:var(--font); font-weight:400; font-size:9.4pt; letter-spacing:0; color:var(--mute); margin-top:1.4mm; }
+.card--blue .plan__price span{ color:rgba(255,255,255,.74); }
+.plan__for{ font-size:10.5pt; margin-top:4mm; line-height:1.36; color:var(--ink-2); }
+.card--blue .plan__for{ color:rgba(255,255,255,.9); }
+.plan ul{ margin-top:4.4mm; display:grid; gap:2.8mm; }
+.plan li{ position:relative; padding-left:6mm; font-size:10.5pt; line-height:1.34; }
+.plan li::before{ content:""; position:absolute; left:0; top:2mm; width:3mm; height:3mm; background:var(--blue); }
+.card--blue li::before{ background:#fff; }
+.plan__fine{ margin-top:auto; padding-top:4.4mm; font-size:9.4pt; color:var(--mute); line-height:1.34; }
+.card--blue .plan__fine{ color:rgba(255,255,255,.74); }
+
+/* ——— 11. старт ——— */
+.start{ display:grid; grid-template-columns:1.15fr 1fr; gap:14mm; width:100%; align-items:center; }
+.steps3{ display:grid; gap:7mm; }
+.steps3 li{ display:grid; grid-template-columns:13mm 1fr; gap:4mm; }
+.steps3 b{ font-family:var(--display); font-weight:800; font-size:17pt; color:var(--blue); line-height:1; }
+.steps3 h4{ font-family:var(--display); font-weight:700; font-size:14pt; letter-spacing:-.015em; }
+.steps3 p{ font-size:11.5pt; color:var(--ink-2); margin-top:2.4mm; line-height:1.36; }
+.need{ padding:7mm; }
+.need h3{ font-family:var(--display); font-weight:700; font-size:14pt; }
+.need li{ position:relative; padding-left:6.4mm; margin-top:4mm; font-size:11.5pt; line-height:1.36; }
+.need li::before{ content:""; position:absolute; left:0; top:2.2mm; width:3.2mm; height:3.2mm; background:var(--blue); }
+
+/* ——— 12. финал ——— */
+.fin{ display:grid; grid-template-columns:1fr 88mm; gap:16mm; align-items:center; width:100%; }
+.fin h2{ font-size:44pt; }
+.fin p{ font-size:14.5pt; line-height:1.4; margin-top:7mm; max-width:180mm; color:rgba(255,255,255,.9); }
+.fin__tg{ margin-top:11mm; display:inline-flex; flex-direction:column; color:#fff; text-decoration:none; }
+.fin__tg b{ font-family:var(--display); font-weight:800; font-size:30pt; letter-spacing:-.035em; }
+.fin__tg span{ font-size:11pt; color:rgba(255,255,255,.76); margin-top:2mm; }
+</style>
+</head>
+<body>
+
+<!-- ═══ 1. титул ═══ -->
+<section class="slide">
+  <div class="top"><span class="brand">Before</span><span class="kicker">Лидген в Telegram и Threads</span></div>
+  <div class="body">
+    <div class="hero">
+      <div>
+        <h1>Клиент ещё<br><span>печатает.</span></h1>
+        <p>Мы находим людей, которые прямо сейчас ищут то, что вы продаёте, и приносим их контакт вашему менеджеру в Telegram.</p>
+      </div>
+      <figure class="card tilt-r bub">
+        <figcaption class="bub__cap">
+          <b>@marketing_chat</b>
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span>печатает</span>
+        </figcaption>
+        <img src="../media/bubble.webp" alt="">
+      </figure>
+    </div>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>01</b><span>Telegram и Threads</span></div>
+    <div class="fact"><b>02</b><span>Только чтение, без сообщений от вашего имени</span></div>
+    <div class="fact"><b>03</b><span>Карточка менеджеру за минуту</span></div>
+  </div>
+</section>
+
+<!-- ═══ 2. проблема ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">01 · Проблема</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Клиента забирает тот,<br>кто ответил первым</h2>
+  <div class="body">
+    <div class="prob">
+      <div class="msgs">
+        <div class="card card--sm msg"><p>«ищу подрядчика по директу для клиники, бюджет 150к»</p><span>@marketing_chat, 12:04</span></div>
+        <div class="card card--sm msg"><p>«посоветуйте бухгалтера на аутсорс для ИП, УСН»</p><span>Threads, 12:07</span></div>
+        <div class="card card--sm msg"><p>«кто ведёт таргет стоматологии, нужен на постоянку»</p><span>@med_marketing, 12:11</span></div>
+      </div>
+      <div class="probtext">
+        <p>Такие сообщения появляются в чатах вашей ниши каждый день. Это <b>готовый клиент</b>: он уже определился, что ему нужно, и ищет исполнителя.</p>
+        <p>Только менеджер их не видит. Чтобы не пропустить, нужно сидеть в десятках чатов и читать всё подряд, включая шум.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">2 / 12</span></div>
+</section>
+
+<!-- ═══ 3. цифра ═══ -->
+<section class="slide slide--blue">
+  <div class="top"><span class="kicker">02 · Масштаб шума</span><span class="kicker">Before</span></div>
+  <div class="body">
+    <div class="big">
+      <div>
+        <span class="big__n num">20 000</span>
+        <h2>сообщений за день. Три запроса.</h2>
+        <p>Столько проходит в общих чатах одной ниши, и только единицы из них стоят внимания менеджера. Мы читаем весь поток и достаём эти единицы.</p>
+      </div>
+      <figure class="card tilt-r big__fig"><img src="../media/funnel.webp" alt=""></figure>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">3 / 12</span></div>
+</section>
+
+<!-- ═══ 4. что делаем ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">03 · Что делаем</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Читаем публичное, приносим запросы</h2>
+  <div class="body">
+    <div class="marks">
+      <figure class="card card--sm mark">
+        <img src="../media/plane.webp" alt="">
+        <b>Telegram</b>
+        <span>Публичные чаты и каналы, которые подбираем под вашу нишу и согласовываем до запуска.</span>
+      </figure>
+      <figure class="card card--sm mark">
+        <img src="../media/thread.webp" alt="">
+        <b>Threads</b>
+        <span>Посты и ответы по ключевым фразам через официальный API. Там пишут о личном и о поиске подрядчика.</span>
+      </figure>
+      <figure class="card card--sm mark">
+        <img src="../media/eye.webp" alt="">
+        <b>Только чтение</b>
+        <span>Отдельный аккаунт не пишет, не вступает в чаты и не подписывается. Доступы к вашим аккаунтам не нужны.</span>
+      </figure>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">4 / 12</span></div>
+</section>
+
+<!-- ═══ 5. карточка ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">04 · Что получает менеджер</span><span class="kicker">Before</span></div>
+  <div class="body">
+    <div class="res">
+      <div class="card bot tilt-l">
+        <div class="bot__head"><span class="bot__ava">B</span><b>Before</b><span>бот</span></div>
+        <div class="bot__body">
+          <div class="bot__msg">
+            <b>Запрос: подрядчик по Директу</b>
+            <span>Клиника, Москва, 150 000 ₽ в месяц. Совпадение 92.</span>
+            <span class="bot__src">Марина К., @marketing_chat, 12:04</span>
+            <span class="bot__link">Открыть сообщение</span>
+            <span class="bot__draft">Черновик: «Марина, здравствуйте. Увидел ваш запрос про Директ…»</span>
+          </div>
+          <div class="bot__keys"><span>В тему</span><span>Мимо</span><span class="on">В работе</span></div>
+        </div>
+      </div>
+      <div>
+        <h2>Карточка в Telegram через минуту после сообщения</h2>
+        <ul class="ticks">
+          <li>Текст запроса и ссылка на само сообщение</li>
+          <li>Автор, источник и время</li>
+          <li>Оценка совпадения с вашим брифом</li>
+          <li>Черновик первого сообщения под этот запрос</li>
+        </ul>
+        <p class="note">Менеджер жмёт «в работе» и пишет клиенту сам, от своего имени. Коллеги видят, что запрос занят.</p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">5 / 12</span></div>
+</section>
+
+<!-- ═══ 6. как работает ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">05 · Как работает</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Пять шагов до первых карточек</h2>
+  <div class="body">
+    <div class="flow">
+      <div class="step"><b>01</b><em>15 минут</em><h3>Разговор</h3><p>Разбираем, что продаёте, кому и где. Подбираем тариф.</p></div>
+      <div class="step"><b>02</b><em>2–3 дня</em><h3>Настройка</h3><p>Собираем источники и сигналы под нишу. Список согласуете.</p></div>
+      <div class="step"><b>03</b><em>круглосуточно</em><h3>Скан</h3><p>Читаем чаты и посты, оцениваем каждое сообщение по контексту.</p></div>
+      <div class="step"><b>04</b><em>в течение минуты</em><h3>Карточки</h3><p>Запрос приходит менеджеру в Telegram с черновиком ответа.</p></div>
+      <div class="step"><b>05</b><em>каждую неделю</em><h3>Аудит</h3><p>Ваши вердикты «в тему» и «мимо», дайджест и замена источников.</p></div>
+    </div>
+  </div>
+  <div class="bottom"><span>От вас бриф и вердикты по карточкам. Остальное делаем мы.</span><span class="num">6 / 12</span></div>
+</section>
+
+<!-- ═══ 7. границы ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">06 · Границы</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Чего мы не делаем</h2>
+  <div class="body">
+    <div class="nos">
+      <div class="no"><i>&#8212;</i><div><b>Не пишем от вашего имени</b><p>Никаких рассылок и автоответов. Первое сообщение клиенту пишет ваш менеджер.</p></div></div>
+      <div class="no"><i>&#8212;</i><div><b>Не просим доступы</b><p>Ни к вашим аккаунтам, ни к CRM. Скан идёт с отдельного аккаунта Before.</p></div></div>
+      <div class="no"><i>&#8212;</i><div><b>Не читаем личное</b><p>Только публичные чаты, каналы и посты. Закрытые переписки не трогаем.</p></div></div>
+      <div class="no"><i>&#8212;</i><div><b>Не продаём базы</b><p>Вы получаете живой запрос человека, а не выгрузку контактов неизвестной свежести.</p></div></div>
+    </div>
+  </div>
+  <div class="bottom"><span>Оферта и политика конфиденциальности опубликованы на сайте.</span><span class="num">7 / 12</span></div>
+</section>
+
+<!-- ═══ 8. кейсы 1 ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">07 · Где уже работает</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Цифры за первый месяц</h2>
+  <div class="body">
+    <div class="tiles">
+      <article class="card tile">
+        <span class="tile__who">Digital-агентство, Москва</span>
+        <b class="tile__num num">37</b>
+        <span class="tile__what">карточек за месяц</span>
+        <p class="tile__ask">«кто ведёт директ для клиник», «посоветуйте агентство на SEO»</p>
+        <p class="tile__res">8 созвонов, 11 карточек из Threads</p>
+      </article>
+      <article class="card card--blue tile tilt-r">
+        <span class="tile__who">Поставки из Китая для селлеров</span>
+        <b class="tile__num num">24</b>
+        <span class="tile__what">запроса за месяц</span>
+        <p class="tile__ask">«ищу поставщика под маркетплейсы», «кто везёт карго с растаможкой»</p>
+        <p class="tile__res">3 партии ушли в расчёт, 5 запросов из Threads</p>
+      </article>
+      <article class="card tile">
+        <span class="tile__who">Банкротство физлиц, Краснодар</span>
+        <b class="tile__num num">48<small>сек</small></b>
+        <span class="tile__what">от сообщения до карточки</span>
+        <p class="tile__ask">«подскажите юриста по банкротству», «приставы списывают, что делать»</p>
+        <p class="tile__res">31 карточка за месяц, 7 консультаций</p>
+      </article>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">8 / 12</span></div>
+</section>
+
+<!-- ═══ 9. кейсы 2 ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">07 · Где уже работает</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:9mm">Разные ниши, одна механика</h2>
+  <div class="body">
+    <div class="tiles">
+      <article class="card card--blue tile tilt-l">
+        <span class="tile__who">Агентство недвижимости, Сочи</span>
+        <b class="tile__num num">29</b>
+        <span class="tile__what">запроса за месяц</span>
+        <p class="tile__ask">«ищу квартиру у моря под сдачу», «посоветуйте риелтора в Сочи»</p>
+        <p class="tile__res">6 показов назначено, 9 запросов из Threads</p>
+      </article>
+      <article class="card tile">
+        <span class="tile__who">Психолог, онлайн</span>
+        <b class="tile__num num">16</b>
+        <span class="tile__what">запросов за месяц</span>
+        <p class="tile__ask">«посоветуйте психолога, который работает с тревогой», «ищу коуча по выгоранию»</p>
+        <p class="tile__res">12 из Threads: о личном там пишут постами. 5 первых сессий</p>
+      </article>
+      <article class="card tile tilt-r">
+        <span class="tile__who">Бухгалтерия на аутсорсе для ИП</span>
+        <b class="tile__num num">21</b>
+        <span class="tile__what">запрос за месяц</span>
+        <p class="tile__ask">«нужен бухгалтер для ИП на УСН», «кто закрывает отчётность за неделю»</p>
+        <p class="tile__res">4 договора, пик за две недели до отчётности</p>
+      </article>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b> · как это работает</span><span class="num">9 / 12</span></div>
+</section>
+
+<!-- ═══ 10. тарифы ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">08 · Тарифы</span><span class="kicker">Before</span></div>
+  <h2 style="margin-top:8mm">Тарифы</h2>
+  <p class="lead" style="margin-top:4mm">Подписка на месяц, настройка под нишу входит в каждый тариф.</p>
+  <div class="body">
+    <div class="plans">
+      <article class="card plan">
+        <h3>Start</h3>
+        <p class="plan__price num">{{PRICE_START}}<span>в месяц</span></p>
+        <p class="plan__for">Проверить, пишут ли ваши клиенты в Telegram.</p>
+        <ul>
+          <li>До 10 чатов и каналов Telegram</li>
+          <li>Одно направление, один менеджер</li>
+          <li>Без Threads и дообучения</li>
+        </ul>
+        <p class="plan__fine">Перейти на Pro можно с любого дня.</p>
+      </article>
+      <article class="card card--blue plan">
+        <h3>Pro</h3>
+        <span class="plan__tag">Чаще всего берут</span>
+        <p class="plan__price num">{{PRICE_PRO}}<span>в месяц</span></p>
+        <p class="plan__for">Отдел продаж из двух-трёх человек, несколько услуг или городов.</p>
+        <ul>
+          <li>Telegram и Threads, до 40 источников</li>
+          <li>До трёх направлений и трёх менеджеров</li>
+          <li>Дообучение по вердиктам, аудит каждый месяц</li>
+        </ul>
+        <p class="plan__fine">Дайджест каждую неделю, кнопка «в работе» для команды.</p>
+      </article>
+      <article class="card plan">
+        <h3>Team</h3>
+        <p class="plan__price num">{{PRICE_TEAM}}<span>в месяц</span></p>
+        <p class="plan__for">Несколько продуктов и большой отдел. Нужен поток.</p>
+        <ul>
+          <li>100+ источников, направления без лимита</li>
+          <li>До десяти менеджеров, два аккаунта скана</li>
+          <li>Выгрузка в таблицу или CRM, созвон раз в неделю</li>
+        </ul>
+        <p class="plan__fine">Под несколько брендов собираем отдельные контуры.</p>
+      </article>
+    </div>
+  </div>
+  <div class="bottom"><span>Оплата после разговора, картой или по СБП. Отмена в любой момент, следующий месяц не списывается.</span><span class="num">10 / 12</span></div>
+</section>
+
+<!-- ═══ 11. старт ═══ -->
+<section class="slide">
+  <div class="top"><span class="kicker">09 · С чего начать</span><span class="kicker">Before</span></div>
+  <div class="body">
+    <div class="start">
+      <div>
+        <h2>Три шага до старта</h2>
+        <ol class="steps3" style="margin-top:9mm">
+          <li><b>01</b><div><h4>Заявка</h4><p>Имя и Telegram. Плюс строка о том, что продаёте.</p></div></li>
+          <li><b>02</b><div><h4>Разговор, 15 минут</h4><p>Покажем реальные запросы в вашей теме и честно скажем, сколько их примерно будет.</p></div></li>
+          <li><b>03</b><div><h4>Оплата и запуск</h4><p>Два-три дня настройки, дальше карточки идут постоянно.</p></div></li>
+        </ol>
+      </div>
+      <div class="card card--sm need">
+        <h3>Что нужно от вас</h3>
+        <ul>
+          <li>Бриф: что продаёте, кому, в каких городах и с каким бюджетом клиента работаете</li>
+          <li>Ники менеджеров в Telegram, которым слать карточки</li>
+          <li>Вердикты «в тему» или «мимо» в первые дни</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"><span>Если за две недели не пришло ни одной карточки по вашему брифу, вернём оплату целиком.</span><span class="num">11 / 12</span></div>
+</section>
+
+<!-- ═══ 12. финал ═══ -->
+<section class="slide slide--blue">
+  <div class="top"><span class="brand">Before</span><span class="kicker">Обсудить</span></div>
+  <div class="body">
+    <div class="fin">
+      <div>
+        <h2>Обсудить вашу нишу</h2>
+        <p>Напишите в Telegram. Вернёмся с примерами запросов из ваших чатов ещё до оплаты, чтобы вы видели, о чём речь.</p>
+        <a class="fin__tg" href="{{TG_URL}}">
+          <b>{{TG_HANDLE}}</b>
+          <span>{{TG_LINK}}</span>
+        </a>
+      </div>
+      <figure class="card tilt-l bub" style="background:var(--paper)">
+        <figcaption class="bub__cap">
+          <b>@marketing_chat</b>
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span>печатает</span>
+        </figcaption>
+        <img src="../media/bubble.webp" alt="">
+      </figure>
+    </div>
+  </div>
+  <div class="bottom"><span><b>Before</b>, 2026. Читаем только публичные сообщения, ничего не пишем от вашего имени.</span><span class="num">12 / 12</span></div>
+</section>
+
+</body>
+</html>
