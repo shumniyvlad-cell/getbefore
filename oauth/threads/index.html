@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Подключение Threads — Before</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .code{word-break:break-all;background:rgba(0,0,0,.05);border-radius:10px;
+          padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+          font-size:14px;line-height:1.5;margin:8px 0 18px}
+    .muted{opacity:.7;font-size:14px}
+  </style>
+</head>
+<body>
+  <main class="doc">
+    <a class="doc__back" href="../../index.html">На сайт Before</a>
+    <h1>Threads подключён</h1>
+    <p class="doc__meta">Эта страница завершает авторизацию Before в вашем аккаунте Threads. Закрывать её можно сразу после того, как код скопирован.</p>
+
+    <div id="ok" hidden>
+      <h2>Код авторизации</h2>
+      <p class="muted">Одноразовый, живёт около часа. Скопируйте и вставьте в настройку сервиса.</p>
+      <div class="code" id="code"></div>
+    </div>
+
+    <div id="fail" hidden>
+      <h2>Авторизация не завершена</h2>
+      <p id="why"></p>
+      <p class="muted">Попробуйте ещё раз со страницы подключения. Если повторяется — напишите нам в Telegram.</p>
+    </div>
+
+    <h2>Что Before делает с доступом</h2>
+    <ol>
+      <li>Читает публичные посты Threads по ключевым словам, которые вы сами задали для своей ниши.</li>
+      <li>Показывает найденное только вам, в вашем боте.</li>
+      <li>Ничего не публикует, никому не пишет, ни на кого не подписывается.</li>
+    </ol>
+    <p>Отозвать доступ можно в любой момент в настройках Threads. Что происходит дальше — на странице
+      <a href="../deauthorize/">отзыва доступа</a>; удаление данных — на странице
+      <a href="../delete/">удаления</a>.</p>
+  </main>
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var code = q.get('code');
+      var error = q.get('error_description') || q.get('error');
+      if (code) {
+        document.getElementById('code').textContent = code;
+        document.getElementById('ok').hidden = false;
+      } else {
+        document.getElementById('why').textContent =
+          error || 'Threads не вернул код авторизации.';
+        document.getElementById('fail').hidden = false;
+      }
+    })();
+  </script>
+</body>
+</html>
