@@ -3,7 +3,7 @@
 // в Script Properties веб-приложения Apps Script (см. apps-script/Code.gs).
 window.BEFORE_CONFIG = {
   // Куда писать клиенту: ссылка на твой Telegram.
-  telegram: "https://t.me/marchvlv",
+  telegram: "https://t.me/marchvlvv",
 
   // Текст, который подставится в поле ввода при переходе в чат.
   // {plan} заменяется на название тарифа; без тарифа вся вставка убирается.
